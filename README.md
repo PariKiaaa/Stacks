@@ -1,4 +1,2 @@
 # Stacks
-update:
-record
-sounds
+update: record \\ sounds
