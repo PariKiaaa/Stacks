@@ -1,5 +1,7 @@
 import pygame
 from pygame import mixer
+from os.path import exists
+from os import remove
 import sys
 import random
 
@@ -15,6 +17,8 @@ sound2 = pygame.mixer.Sound('sounds\\sound2.mp3')
 # music = pygame.mixer.Sound('sounds\\music.mp3')
 
 
+
+
 background = (23, 32, 42)
 
 white = (236, 240, 241)
@@ -27,8 +31,6 @@ color = [(120, 40, 31), (148, 49, 38), (176, 58, 46), (203, 67, 53), (231, 76, 6
          (126, 81, 9), (156, 100, 12), (185, 119, 14), (202, 111, 30), (214, 137, 16), (243, 156, 18), (245, 176, 65), (248, 196, 113),(250, 215, 160), (253, 235, 208), (254, 245, 231),
          (232, 246, 243), (162, 217, 206), (162, 217, 206),
          (115, 198, 182), (69, 179, 157), (22, 160, 133),
-         (19, 141, 117), (17, 122, 101), (14, 102, 85),
-         (11, 83, 69),
          (21, 67, 96), (26, 82, 118), (31, 97, 141),
         (36, 113, 163), (41, 128, 185), (84, 153, 199),
         (127, 179, 213), (169, 204, 227), (212, 230, 241),
@@ -38,7 +40,7 @@ color = [(120, 40, 31), (148, 49, 38), (176, 58, 46), (203, 67, 53), (231, 76, 6
          (186, 74, 0), (160, 64, 0), (135, 54, 0),
          (110, 44, 0)
          ]
-
+print(color[28])
 colorIndex = 0
 
 brickH = 10
@@ -58,29 +60,44 @@ except:
 
 # Single Brick Class
 class Brick:
-    def __init__(self, x, y, color, speed):
+    def __init__(self, x, y, color, speed,lastBrick=width/2 - brickW/2):
         self.x = x
         self.y = y
         self.w = brickW
         self.h = brickH
         self.color = color
         self.speed = speed
+        self.lastBrick = lastBrick
 
     def draw(self):
         pygame.draw.rect(display, self.color, (self.x, self.y, self.w, self.h))
 
     def move(self):
         self.x += self.speed
-        if self.x > width:
+
+        if exists('check.txt'):
+            if self.x> width:
+                self.speed *= -1
+        else:
+            if self.x + self.w> width:
+                self.speed *= -1
+            with open('check.txt','x'):
+                pass                
+        if self.x< 1:
             self.speed *= -1
-        if self.x + self.w < 1:
-            self.speed *= -1
+
+        if newBrick.x == self.x:
+            self.color = green
+        else:
+            self.color = color
+
+
 
 
 # Complete Stack
 class Stack:
     def __init__(self):
-        global colorIndex
+        global colorIndex, newBrick
         self.stack = []
         self.initSize = 25
         for i in range(self.initSize):
@@ -103,10 +120,10 @@ class Stack:
             colorIndex = 0
         
         y = self.peek().y
-        if score > 50:
-            speed += 0
-        elif score%5 == 0:
-            speed += 1
+        # if score > 50:
+        #     speed += 0
+        # elif score%5 == 0:
+        #     speed += 1
         
         newBrick = Brick(width, y - brickH, color[colorIndex], speed)
         colorIndex += 1
@@ -141,6 +158,7 @@ class Stack:
 
 # Game Over
 def gameOver():
+    remove('check.txt')
     mixer.music.pause() 
     pygame.mixer.Sound.play(sound2)
     loop = True
@@ -220,14 +238,15 @@ def gameLoop():
     loop = True
 
     brickH = 10
-    brickW = 100
+    brickW = 200
     colorIndex = 0
     speed = 3
 
     score = 0
 
-    # mixer.music.load('sounds\\music.mp3')
-    # mixer.music.play(-1)
+
+    mixer.music.load('sounds\\music.mp3')
+    mixer.music.play(-1)
 
     stack = Stack()
     stack.addNewBrick()
