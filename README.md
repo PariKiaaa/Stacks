@@ -4,21 +4,12 @@ Stacks is a simple game implemented in Python using the Pygame library. The obje
 
 ## Table of Contents
 
-- [Features](#features)
 - [How to Play](#how-to-play)
 - [Controls](#controls)
 - [High Score](#high-score)
 - [Project Structure](#project-structure)
 - [Dependencies](#dependencies)
 - [License](#license)
-
-## Features
-
-- Dynamic stacking of bricks.
-- Strategic gameplay to position the moving brick on the static stack.
-- Real-time removal of brick parts that extend beyond the stack.
-- Sound effects for interactions.
-- High score tracking.
 
 ## How to Play
 
