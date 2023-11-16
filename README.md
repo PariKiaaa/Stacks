@@ -1,6 +1,6 @@
 # Stacks Game
 
-Stacks is a simple game implemented in Python using the Pygame library. The objective of the game is to stack bricks on top of each other as they move from right to left, trying to achieve the highest score possible.
+Stacks is a simple game implemented in Python using the Pygame library. The objective of the game is to strategically push a moving brick onto a static stack. The player must carefully position the brick, ensuring that all parts are on the stack. Any part of the brick that extends beyond the stack will be removed, making the brick smaller. The game continues until the brick becomes too small to be visible or is completely pushed out of the stack.
 
 ## Table of Contents
 
@@ -15,21 +15,22 @@ Stacks is a simple game implemented in Python using the Pygame library. The obje
 ## Features
 
 - Dynamic stacking of bricks.
-- Colorful bricks with varying sizes.
+- Strategic gameplay to position the moving brick on the static stack.
+- Real-time removal of brick parts that extend beyond the stack.
 - Sound effects for interactions.
 - High score tracking.
 
 ## How to Play
 
-- Move the stack left and right to align with incoming bricks.
-- Press the space bar to drop the brick onto the stack.
-- Aim to stack bricks perfectly to achieve a high score.
+- A brick moves from right to left across the screen.
+- Press the space bar to push the brick onto the stack.
+- Strategically position the brick to ensure all parts are on the stack.
+- Any part of the brick extending beyond the stack will be removed.
+- The game continues until the brick becomes too small to be visible or is completely pushed out of the stack.
 
 ## Controls
 
-- **Left Arrow:** Move the stack left.
-- **Right Arrow:** Move the stack right.
-- **Space Bar:** Drop the brick onto the stack.
+- **Space Bar:** Push the brick onto the stack.
 
 ## High Score
 
