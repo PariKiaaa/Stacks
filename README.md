@@ -5,7 +5,6 @@ Stacks is a simple game implemented in Python using the Pygame library. The obje
 ## Table of Contents
 
 - [Features](#features)
-- [Installation](#installation)
 - [How to Play](#how-to-play)
 - [Controls](#controls)
 - [High Score](#high-score)
@@ -19,34 +18,6 @@ Stacks is a simple game implemented in Python using the Pygame library. The obje
 - Colorful bricks with varying sizes.
 - Sound effects for interactions.
 - High score tracking.
-
-## Installation
-
-To run the game locally, follow these steps:
-
-1. Clone the repository to your local machine:
-
-    ```bash
-    git clone https://github.com/PariKiaaa/Stacks.git
-    ```
-
-2. Navigate to the project directory:
-
-    ```bash
-    cd Stacks
-    ```
-
-3. Install the required dependencies:
-
-    ```bash
-    pip install pygame
-    ```
-
-4. Run the game:
-
-    ```bash
-    python Stacks.py
-    ```
 
 ## How to Play
 
