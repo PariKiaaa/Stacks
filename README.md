@@ -9,7 +9,6 @@ Stacks is a simple game implemented in Python using the Pygame library. The obje
 - [High Score](#high-score)
 - [Project Structure](#project-structure)
 - [Dependencies](#dependencies)
-- [License](#license)
 
 ## How to Play
 
